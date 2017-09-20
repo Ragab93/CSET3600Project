@@ -28,7 +28,11 @@ namespace NetworkConfigurator
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-           
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowSpecificOrigin",
+                    builder => builder.WithOrigins("viewnet2.azurewebsites.net", "localhost"));
+            });
             services.AddMvc();
             services.AddDbContext<PeopleContext>(options =>
        options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));

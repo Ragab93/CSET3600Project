@@ -2,11 +2,13 @@
  * Created by MattDiederick on 9/19/17.
  */
 // points
+//point class
 function Point(x,y)
 {
     this.leftPercent =x;
     this.topPercent = y;
 }
+//points where hosts are added
 var points = [
     new Point(10,50),
     new Point(80,50),
@@ -22,10 +24,30 @@ var points = [
     new Point(62,80)
 
 ];
+
+var switchPoints = [
+    new Point(30,50),
+    new Point(60,50)
+];
+
+
 var addElement = (function(){
     var index =0;
+    var switchIndex = 0;
+    var curr = document.getElementById("box");
+    function addSwitchImg(point){
+        this.SwitchPoint = point;
+        var newImg = document.createElement("img");
+        newImg.setAttribute("src", "./images/switch.jpeg");
+        newImg.setAttribute("width", "60px");
+        newImg.style.position= "absolute" ;
+        newImg.style.left = this.SwitchPoint.leftPercent + '%';
+        newImg.style.top = this.SwitchPoint.topPercent + '%' ;
+        curr.appendChild(newImg);
+        switchIndex = switchIndex + 1;
 
-    function addImg(point){
+    }
+    function addHostImg(point){
         this.point = point;
         var newEl = document.createElement("img");
         newEl.setAttribute("src", "./images/computer.jpg");
@@ -36,35 +58,69 @@ var addElement = (function(){
 
         //newEl.appendChild(content);
 
-        var curr = document.getElementById("box");
+
         curr.appendChild(newEl);
         index = index + 1;
     }
     return {
-        add : function(){
-            addImg(points[index]);
+        addHost : function(){
+            addHostImg(points[index]);
+        },
+
+        addSwitch : function(){
+            addSwitchImg(switchPoints[switchIndex]);
         }
     }
 })();
 
 
+// toggle dropdown menus on and off
+function ToggleVisibility(type)
+{
+    var div = document.getElementById("addHost");
+    var switchdiv = document.getElementById("addSwitch");       
+    if(type == "host")
+    {
+        
+        if(div.style.display !== 'none')
+         {
+            div.style.display = 'none'
+         }
+        else{
+            div.style.display = 'block';
+            if (switchdiv.style.display === 'block'){
+                switchdiv.style.display = 'none';
+            }
 
-function ToggleVisibility(){
-   var div = document.getElementById("addHost");
-   if(div.style.display !== 'none')
+        }
+   } 
+   else if(type == "switch")
    {
-       div.style.display = 'none';
+
+        if(switchdiv.style.display !== 'none')
+        {
+            switchdiv.style.display = 'none';
+        }
+        else{
+            switchdiv.style.display = 'block';
+            if(div.style.display === 'block'){
+                div.style.display = 'none'
+            }
+
+        }
+
    }
-   else{
-       div.style.display = 'block';
-   }
+
 }
+
 
 function Host(name, eth0) {
     this.name = name;
-    this.eth0 - eth0;
+    this.eth0 = eth0;
 }
 
+
+// ajax call to add a host
 function postHost() {
     var name = document.getElementById("name").value;
     var eth0 = document.getElementById("eth0").value;

@@ -1,0 +1,16 @@
+﻿<Properties StartupConfiguration="{F9047E03-6E15-4D2E-94BF-12BD60211455}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/CreateController.cs">
+    <Files>
+      <File FileName="Views/Create/Index.cshtml" Line="71" Column="89" />
+      <File FileName="wwwroot/js/test.js" Line="155" Column="2" />
+      <File FileName="Controllers/CreateController.cs" Line="36" Column="10" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.NetworkConfigurator PreferredExecutionTarget="MonoDevelop.Default" />
+  <MultiItemStartupConfigurations />
+</Properties>

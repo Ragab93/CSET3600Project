@@ -13,13 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="wwwroot\css\createStyles.css" />
-    <Content Include="wwwroot\css\HomeIndex.css" />
-    <Content Include="wwwroot\images\computer.jpg" />
-    <Content Include="wwwroot\images\network.png" />
-    <Content Include="wwwroot\js\test.js" />
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
     <PackageReference Include="Microsoft.AspNetCore" Version="1.1.2" />
     <PackageReference Include="Microsoft.AspNetCore.Cors" Version="1.1.2" />
@@ -43,6 +36,7 @@
     <Folder Include="Views\Home\" />
     <Folder Include="Views\Create\" />
     <Folder Include="Views\Saved\" />
+    <Folder Include="wwwroot\images\" />
   </ItemGroup>
 
 </Project>

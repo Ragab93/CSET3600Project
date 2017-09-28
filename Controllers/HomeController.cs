@@ -8,14 +8,12 @@ namespace NetworkConfigurator.Controllers
 {
     public class HomeController : Controller
     {
+
+        // / or /index
         public IActionResult Index()
         {
-            Person person = new Person()
-            {
-                Age = 29,
-                Name = "Matt"
-            };
-            return View("Index", person);
+            
+            return View("Index");
         }
     }
 }

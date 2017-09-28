@@ -11,6 +11,8 @@ using NetworkConfigurator.DataManager;
 using Microsoft.EntityFrameworkCore;
 namespace NetworkConfigurator
 {
+
+    // more configuration // adds need components to application
     public class Startup
     {
         public Startup(IHostingEnvironment env)
@@ -31,7 +33,7 @@ namespace NetworkConfigurator
             services.AddCors(options =>
             {
                 options.AddPolicy("AllowSpecificOrigin",
-                    builder => builder.WithOrigins("viewnet2.azurewebsites.net", "localhost"));
+                   builder => builder.WithOrigins("vnet2.database.windows.net", "localhost"));
             });
             services.AddMvc();
             services.AddDbContext<PeopleContext>(options =>

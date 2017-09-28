@@ -114,9 +114,11 @@ function ToggleVisibility(type)
 }
 
 
-function Host(name, eth0) {
+function Host(name,switchname, eth0,eth1) {
     this.name = name;
     this.eth0 = eth0;
+    this.switchname = switchname;
+    this.eth1 = eth1;
 }
 
 
@@ -124,13 +126,27 @@ function Host(name, eth0) {
 function postHost() {
     var name = document.getElementById("name").value;
     var eth0 = document.getElementById("eth0").value;
+    var eth1 = document.getElementById("eth1").value;
+    var switchName = document.getElementById("switch").value;
 
     //console.log(name);
    // console.log(eth0);
-    var host = new Host(name, eth0);
+    var host = new Host(name,switchName, eth0,eth1);
     var xhr = new XMLHttpRequest();
     xhr.open('POST', '/create/addhost', true);
     xhr.setRequestHeader("Content-type", "application/json");
-    xhr.send(JSON.stringify(name));
+    xhr.send(JSON.stringify(host));
 
+}
+
+function postSwitch() {
+
+
+}
+function postMyNetwork(name)
+{
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '/create/savenetwork', true);
+    xhr.setRequestHeader("Content-type", "application/json");
+    xhr.send(JSON.stringify(name))
 }

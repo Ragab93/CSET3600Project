@@ -8,9 +8,10 @@ using NetworkConfigurator.DataManager;
 namespace NetworkConfigurator.Migrations
 {
     [DbContext(typeof(PeopleContext))]
-    partial class PeopleContextModelSnapshot : ModelSnapshot
+    [Migration("20170925235040_addNetworkClass")]
+    partial class addNetworkClass
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")

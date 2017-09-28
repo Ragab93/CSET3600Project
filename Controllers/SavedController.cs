@@ -8,6 +8,8 @@ namespace NetworkConfigurator.Controllers
 {
     public class SavedController : Controller
     {
+
+        // /saved or /saved/index
         public IActionResult Index()
         {
             return View();

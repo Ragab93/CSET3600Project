@@ -9,6 +9,8 @@ namespace NetworkConfigurator
 {
     public class Program
     {
+
+        // this class just initializes the application
         public static void Main(string[] args)
         {
             var host = new WebHostBuilder()

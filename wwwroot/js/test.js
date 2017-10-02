@@ -114,11 +114,10 @@ function ToggleVisibility(type)
 }
 
 
-function Host(name,switchname, eth0,eth1) {
+function Host(name,switchname, eth0) {
     this.name = name;
     this.eth0 = eth0;
     this.switchname = switchname;
-    this.eth1 = eth1;
 }
 
 
@@ -126,27 +125,46 @@ function Host(name,switchname, eth0,eth1) {
 function postHost() {
     var name = document.getElementById("name").value;
     var eth0 = document.getElementById("eth0").value;
-    var eth1 = document.getElementById("eth1").value;
     var switchName = document.getElementById("switch").value;
 
     //console.log(name);
    // console.log(eth0);
-    var host = new Host(name,switchName, eth0,eth1);
+    var host = new Host(name,switchName, eth0);
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', '/create/addhost', true);
+    xhr.open('POST', 'Create/AddNewHost', true);
     xhr.setRequestHeader("Content-type", "application/json");
     xhr.send(JSON.stringify(host));
 
 }
 
-function postSwitch() {
+function Switch(name, eth0, ports)
+{
+    this.name = name;
+    this.eth0 = eth0;
+    this.ports = ports; 
+}
 
+
+function postSwitch() {
+    var name = document.getElementById("switchname").value;
+    var eth0 = document.getElementById("eth0").value;
+    var ports = document.getElementById("ports").value;
+
+    var switch1 = new Switch(name, eth0, ports);
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'Create/AddNewSwitch', true);
+    xhr.setRequestHeader("Content-type", "application/json");
+    xhr.send(JSON.stringify(switch1));
 
 }
-function postMyNetwork(name)
+function postNewNetwork()
 {
+    //var mainContent = document.getElementById("mainContent");
+    var name = document.getElementById("newNetworkName").value;
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', '/create/savenetwork', true);
+    xhr.open('POST', 'Create/addnetwork', true);
     xhr.setRequestHeader("Content-type", "application/json");
     xhr.send(JSON.stringify(name))
+    //mainContent.style.display = "block"; 
 }

@@ -1,5 +1,8 @@
 ﻿
-
+#mainContent {
+    display: none;
+    visibility: collapse;
+}
 #box {
     border: 3px solid black;
     border-radius: 5px;
@@ -7,6 +10,7 @@
     margin: 20px;
     background-color: lightgray;
 }
+
 
 #addHost {
     display: none;

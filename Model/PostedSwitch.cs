@@ -9,9 +9,8 @@ namespace NetworkConfigurator.Model
     {
         public string name { get; set; }
         public string eth0 { get; set; }
-        public string eth1 { get; set; }
-        
-
+    
+       
         public int ports { get; set; }
 
     }

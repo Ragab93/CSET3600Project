@@ -8,13 +8,30 @@ using NetworkConfigurator.DataManager;
 namespace NetworkConfigurator.Migrations
 {
     [DbContext(typeof(PeopleContext))]
-    partial class PeopleContextModelSnapshot : ModelSnapshot
+    [Migration("20171002162448_update4")]
+    partial class update4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("NetworkConfigurator.Model.Adapter", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("IPAddress");
+
+                    b.Property<int?>("SwitchID");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("SwitchID");
+
+                    b.ToTable("Adapters");
+                });
 
             modelBuilder.Entity("NetworkConfigurator.Model.Host", b =>
                 {
@@ -57,8 +74,6 @@ namespace NetworkConfigurator.Migrations
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Adapter");
-
                     b.Property<string>("Name");
 
                     b.Property<int?>("NetworkID");
@@ -70,6 +85,13 @@ namespace NetworkConfigurator.Migrations
                     b.HasIndex("NetworkID");
 
                     b.ToTable("Switch");
+                });
+
+            modelBuilder.Entity("NetworkConfigurator.Model.Adapter", b =>
+                {
+                    b.HasOne("NetworkConfigurator.Model.Switch")
+                        .WithMany("networkAdapters")
+                        .HasForeignKey("SwitchID");
                 });
 
             modelBuilder.Entity("NetworkConfigurator.Model.Host", b =>

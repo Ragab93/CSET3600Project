@@ -1,8 +1,5 @@
 ﻿
-#mainContent {
-    display: none;
-    visibility: collapse;
-}
+
 #box {
     border: 3px solid black;
     border-radius: 5px;

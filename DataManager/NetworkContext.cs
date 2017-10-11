@@ -38,7 +38,7 @@ namespace NetworkConfigurator.DataManager
                      from sw in s.Switchs
                      where sw.Name == name
                      select sw.ID ;
-            return id.Single() ; 
+            return id.First() ; 
         }
        
         public int getNetworkId(string name)
@@ -46,7 +46,7 @@ namespace NetworkConfigurator.DataManager
             var id = from n in Network
                       where n.Name == name
                       select n.ID;
-            return id.Single();
+            return id.First();
 
         }
     }

@@ -23,7 +23,7 @@ namespace NetworkConfigurator.Controllers
         public Switch newSwitch;
         public Network newNetwork;
        // public int NetworkID = 1;
-        public static bool NetworkCreated = false;
+      //  public static bool NetworkCreated = false;
        static string   NetworkName; 
         //constructor to initialize network components 
         public CreateController(PeopleContext context)
@@ -39,7 +39,7 @@ namespace NetworkConfigurator.Controllers
         //  /create or /create/index  returns the view in the views/create folder
         public IActionResult Index()
         {
-            return View(NetworkCreated);
+            return View();
         }
         [HttpPost("Create/AddNetwork")]
         [EnableCors("AllowSpecificOrigin")]
@@ -56,7 +56,7 @@ namespace NetworkConfigurator.Controllers
                 
             }
 
-            return RedirectToAction("Index", NetworkCreated);
+            return RedirectToAction("Index");
         }
         public void SaveNetwork(PeopleContext context, Network network)
         {
@@ -101,7 +101,7 @@ namespace NetworkConfigurator.Controllers
             this.newSwitch.ports = switch1.ports;
             this.newSwitch.NetworkID = _context.getNetworkId(NetworkName);
 
-            SaveSwitch(_context, this.newSwitch); 
+          SaveSwitch(_context, this.newSwitch); 
 
             return RedirectToAction("Index");
         }
